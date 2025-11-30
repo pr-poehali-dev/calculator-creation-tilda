@@ -119,13 +119,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="space-y-3 sm:space-y-4 pt-2 sm:pt-4">
-            <Button 
-              className="w-full h-14 sm:h-16 text-lg sm:text-xl font-semibold bg-primary hover:bg-primary/90 text-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200"
-            >
-              Получить через госуслуги
-            </Button>
-            
+          <div className="pt-2 sm:pt-4">
             <Button 
               variant="outline"
               className="w-full h-14 sm:h-16 text-lg sm:text-xl font-semibold border-[#FFD93D] border-3 sm:border-4 bg-white hover:bg-[#FFD93D]/10 text-gray-900 rounded-xl sm:rounded-2xl transition-all duration-200"
