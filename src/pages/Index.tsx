@@ -58,7 +58,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-blue-50 flex items-center justify-center p-0">
-      <Card className="w-full bg-white shadow-2xl rounded-none overflow-hidden h-screen flex flex-col">
+      <Card className="w-full bg-white shadow-2xl rounded-2xl sm:rounded-none overflow-hidden h-screen flex flex-col">
         <div className="bg-gradient-to-r from-primary via-blue-600 to-primary p-5 relative overflow-hidden">
           <div className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl opacity-20">
             ✓💰🎁
