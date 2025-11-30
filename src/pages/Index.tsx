@@ -9,6 +9,7 @@ export default function Index() {
   const [days, setDays] = useState(10);
   const [returnDate, setReturnDate] = useState('');
   const [showCode, setShowCode] = useState(false);
+  const [receiveTime, setReceiveTime] = useState('');
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -37,6 +38,19 @@ export default function Index() {
     setReturnDate(today.toLocaleDateString('ru-RU', options));
   }, [days]);
 
+  useEffect(() => {
+    const updateReceiveTime = () => {
+      const now = new Date();
+      now.setMinutes(now.getMinutes() + 20);
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      setReceiveTime(`${hours}:${minutes}`);
+    };
+    updateReceiveTime();
+    const interval = setInterval(updateReceiveTime, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
   const formatAmount = (value: number) => {
     return value.toLocaleString('ru-RU');
   };
@@ -52,9 +66,17 @@ export default function Index() {
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2">
               Первый заём бесплатно!
             </h1>
-            <p className="text-white/90 text-base sm:text-lg">
-              При условии возврата в срок
-            </p>
+            <div className="flex items-center gap-2 flex-wrap">
+              <p className="text-white/90 text-base sm:text-lg">
+                При условии возврата в срок
+              </p>
+              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-lg">
+                <Icon name="Clock" size={16} className="text-white" />
+                <span className="text-white font-semibold text-sm sm:text-base">
+                  Получите до {receiveTime}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
