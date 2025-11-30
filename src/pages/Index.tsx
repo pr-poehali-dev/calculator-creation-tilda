@@ -150,7 +150,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="pt-3 sm:pt-4">
+          <div className="pt-3">
             <Button 
               asChild
               className="w-full h-14 sm:h-16 text-lg sm:text-xl font-semibold bg-primary hover:bg-primary/90 text-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200"
@@ -161,7 +161,7 @@ export default function Index() {
             </Button>
           </div>
 
-          <div className="text-center pt-2 sm:pt-2">
+          <div className="text-center pt-3">
             <button 
               onClick={() => setShowInfoModal(true)}
               className="text-primary hover:underline text-sm sm:text-base transition-all duration-200"
