@@ -186,20 +186,20 @@ export default function Index() {
           <div className="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs font-mono overflow-x-auto">
             <code>
               &lt;iframe src="{window.location.origin}" 
-              <br />width="100%" height="800px" 
-              <br />frameborder="0"&gt;&lt;/iframe&gt;
+              <br />width="100%" height="100vh" 
+              <br />style="border:none;display:block;margin:0;padding:0;"&gt;&lt;/iframe&gt;
             </code>
           </div>
           <button
             onClick={() => {
-              navigator.clipboard.writeText(`<iframe src="${window.location.origin}" width="100%" height="800px" frameborder="0"></iframe>`);
+              navigator.clipboard.writeText(`<iframe src="${window.location.origin}" width="100%" height="100vh" style="border:none;display:block;margin:0;padding:0;"></iframe>`);
             }}
             className="w-full mt-3 bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
           >
             Скопировать код
           </button>
           <p className="text-xs text-gray-600 mt-3">
-            Вставьте этот код в блок T123 (HTML) на Tilda
+            Вставьте этот код в блок T123 (HTML) на Tilda. Iframe займет всю высоту экрана.
           </p>
         </div>
       )}
