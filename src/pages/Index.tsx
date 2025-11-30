@@ -8,6 +8,14 @@ export default function Index() {
   const [amount, setAmount] = useState(10000);
   const [days, setDays] = useState(10);
   const [returnDate, setReturnDate] = useState('');
+  const [showCode, setShowCode] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('admin') === 'true') {
+      setShowCode(true);
+    }
+  }, []);
 
   const minAmount = 5000;
   const maxAmount = 100000;
@@ -138,7 +146,37 @@ export default function Index() {
         </div>
       </Card>
 
-
+      {showCode && (
+        <div className="fixed bottom-4 right-4 bg-white p-6 rounded-2xl shadow-2xl max-w-md border-2 border-primary/20 animate-fade-in">
+          <div className="flex justify-between items-center mb-3">
+            <h3 className="font-bold text-lg text-gray-900">Код для Tilda</h3>
+            <button 
+              onClick={() => setShowCode(false)}
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <Icon name="X" size={20} />
+            </button>
+          </div>
+          <div className="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs font-mono overflow-x-auto">
+            <code>
+              &lt;iframe src="{window.location.origin}" 
+              <br />width="100%" height="800px" 
+              <br />frameborder="0"&gt;&lt;/iframe&gt;
+            </code>
+          </div>
+          <button
+            onClick={() => {
+              navigator.clipboard.writeText(`<iframe src="${window.location.origin}" width="100%" height="800px" frameborder="0"></iframe>`);
+            }}
+            className="w-full mt-3 bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
+          >
+            Скопировать код
+          </button>
+          <p className="text-xs text-gray-600 mt-3">
+            Вставьте этот код в блок T123 (HTML) на Tilda
+          </p>
+        </div>
+      )}
     </div>
   );
 }
