@@ -81,7 +81,7 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="p-5 sm:p-6 md:p-8 space-y-5 sm:space-y-8">
+        <div className="p-5 pb-3 sm:p-6 md:p-8 space-y-5 sm:space-y-8">
           <div className="space-y-3 sm:space-y-4">
             <div className="flex justify-between items-baseline">
               <label className="text-lg sm:text-xl text-gray-700">Сумма</label>
