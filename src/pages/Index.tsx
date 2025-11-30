@@ -1,14 +1,160 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useEffect } from 'react';
+import { Card } from '@/components/ui/card';
+import { Slider } from '@/components/ui/slider';
+import { Button } from '@/components/ui/button';
+import Icon from '@/components/ui/icon';
 
-const Index = () => {
+export default function Index() {
+  const [amount, setAmount] = useState(10000);
+  const [days, setDays] = useState(10);
+  const [returnDate, setReturnDate] = useState('');
+
+  const minAmount = 5000;
+  const maxAmount = 100000;
+  const minDays = 5;
+  const maxDays = 30;
+
+  const baseRate = 0.02;
+  const discountRate = 0.01;
+  
+  const normalInterest = Math.round(amount * baseRate * days);
+  const discountedInterest = Math.round(amount * discountRate * days);
+  const normalTotal = amount + normalInterest;
+  const discountedTotal = amount + discountedInterest;
+
+  useEffect(() => {
+    const today = new Date();
+    today.setDate(today.getDate() + days);
+    const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
+    setReturnDate(today.toLocaleDateString('ru-RU', options));
+  }, [days]);
+
+  const formatAmount = (value: number) => {
+    return value.toLocaleString('ru-RU');
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-blue-50 flex items-center justify-center p-4">
+      <Card className="w-full max-w-2xl bg-white shadow-2xl rounded-3xl overflow-hidden">
+        <div className="bg-gradient-to-r from-[#FFD93D] via-[#FFC933] to-[#FFD93D] p-6 relative overflow-hidden">
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 text-6xl opacity-20">
+            ✓💰🎁
+          </div>
+          <div className="relative z-10">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              Первый заём бесплатно!
+            </h1>
+            <p className="text-gray-700 text-lg">
+              При условии возврата в срок
+            </p>
+          </div>
+        </div>
+
+        <div className="p-8 space-y-8">
+          <div className="space-y-4">
+            <div className="flex justify-between items-baseline">
+              <label className="text-xl text-gray-700">Сумма</label>
+              <span className="text-3xl font-bold text-gray-900">
+                {formatAmount(amount)} ₽
+              </span>
+            </div>
+            <div className="relative pt-2 pb-4">
+              <Slider
+                value={[amount]}
+                onValueChange={(value) => setAmount(value[0])}
+                min={minAmount}
+                max={maxAmount}
+                step={1000}
+                className="w-full"
+              />
+              <div className="flex justify-between text-sm text-gray-500 mt-2">
+                <span>{formatAmount(minAmount)} ₽</span>
+                <span>{formatAmount(maxAmount)} ₽</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex justify-between items-baseline">
+              <label className="text-xl text-gray-700">Срок</label>
+              <span className="text-3xl font-bold text-gray-900">
+                {days} дней
+              </span>
+            </div>
+            <div className="relative pt-2 pb-4">
+              <Slider
+                value={[days]}
+                onValueChange={(value) => setDays(value[0])}
+                min={minDays}
+                max={maxDays}
+                step={1}
+                className="w-full"
+              />
+              <div className="flex justify-between text-sm text-gray-500 mt-2">
+                <span>{minDays} дней</span>
+                <span>{maxDays} дней</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-6 pt-4">
+            <div>
+              <p className="text-gray-600 mb-2">Возвращаете</p>
+              <div className="space-y-1">
+                <p className="text-gray-400 line-through text-lg">
+                  {formatAmount(normalTotal)} ₽
+                </p>
+                <div className="inline-block bg-[#C4F54E] px-4 py-2 rounded-xl">
+                  <p className="text-2xl font-bold text-gray-900">
+                    {formatAmount(discountedTotal)} ₽
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p className="text-gray-600 mb-2">Дата возврата</p>
+              <p className="text-2xl font-semibold text-gray-900 mt-3">
+                {returnDate}
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-4 pt-4">
+            <Button 
+              className="w-full h-16 text-xl font-semibold bg-primary hover:bg-primary/90 text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200"
+            >
+              Получить через госуслуги
+            </Button>
+            
+            <Button 
+              variant="outline"
+              className="w-full h-16 text-xl font-semibold border-[#FFD93D] border-4 bg-white hover:bg-[#FFD93D]/10 text-gray-900 rounded-2xl transition-all duration-200"
+            >
+              Получить бесплатно
+            </Button>
+          </div>
+
+          <div className="text-center pt-2">
+            <button className="text-primary hover:underline text-base transition-all duration-200">
+              Что если я не успею вернуть заём вовремя?
+            </button>
+          </div>
+        </div>
+      </Card>
+
+      <div className="fixed bottom-8 right-8 bg-white p-6 rounded-2xl shadow-xl max-w-md hidden lg:block border-2 border-gray-100">
+        <h3 className="font-bold text-lg mb-3 text-gray-900">Код для Tilda</h3>
+        <div className="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs font-mono overflow-x-auto">
+          <code>
+            &lt;iframe src="{window.location.href}" 
+            <br />width="100%" height="800px" 
+            <br />frameborder="0"&gt;&lt;/iframe&gt;
+          </code>
+        </div>
+        <p className="text-sm text-gray-600 mt-3">
+          Вставьте этот код в блок T123 (HTML) на Tilda
+        </p>
       </div>
     </div>
   );
-};
-
-export default Index;
+}
