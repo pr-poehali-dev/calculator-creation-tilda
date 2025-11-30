@@ -10,6 +10,7 @@ export default function Index() {
   const [returnDate, setReturnDate] = useState('');
   const [showCode, setShowCode] = useState(false);
   const [receiveTime, setReceiveTime] = useState('');
+  const [showInfoModal, setShowInfoModal] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -161,7 +162,10 @@ export default function Index() {
           </div>
 
           <div className="text-center pt-1 sm:pt-2">
-            <button className="text-primary hover:underline text-sm sm:text-base transition-all duration-200">
+            <button 
+              onClick={() => setShowInfoModal(true)}
+              className="text-primary hover:underline text-sm sm:text-base transition-all duration-200"
+            >
               Что если я не успею вернуть заём вовремя?
             </button>
           </div>
@@ -198,6 +202,75 @@ export default function Index() {
             Вставьте этот код в блок T123 (HTML) на Tilda
           </p>
         </div>
+      )}
+
+      {showInfoModal && (
+        <>
+          <div 
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+            onClick={() => setShowInfoModal(false)}
+          />
+          <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-lg bg-white rounded-3xl shadow-2xl z-50 p-6 sm:p-8 animate-fade-in">
+            <div className="flex justify-between items-start mb-4">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                  <Icon name="AlertCircle" size={24} className="text-red-600" />
+                </div>
+                <h3 className="font-bold text-xl text-gray-900">Просрочка платежа</h3>
+              </div>
+              <button 
+                onClick={() => setShowInfoModal(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <Icon name="X" size={24} />
+              </button>
+            </div>
+            
+            <div className="space-y-4 text-gray-700">
+              <p className="text-base leading-relaxed">
+                При несвоевременном возврате займа начисляются дополнительные проценты и штрафы согласно договору.
+              </p>
+              
+              <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+                <h4 className="font-semibold text-red-900 mb-2 flex items-center gap-2">
+                  <Icon name="Info" size={18} />
+                  Важно знать:
+                </h4>
+                <ul className="space-y-2 text-sm text-red-800">
+                  <li className="flex gap-2">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>Пени начисляются с первого дня просрочки</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>Штраф составляет 0,1% от суммы займа за каждый день просрочки</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>Информация может быть передана в бюро кредитных историй</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                <h4 className="font-semibold text-blue-900 mb-2 flex items-center gap-2">
+                  <Icon name="Phone" size={18} />
+                  Не можете погасить вовремя?
+                </h4>
+                <p className="text-sm text-blue-800">
+                  Свяжитесь с нашей службой поддержки до даты платежа. Мы поможем найти решение и предложим план реструктуризации долга.
+                </p>
+              </div>
+            </div>
+
+            <Button
+              onClick={() => setShowInfoModal(false)}
+              className="w-full mt-6 h-12 text-base font-semibold bg-primary hover:bg-primary/90 text-white rounded-xl"
+            >
+              Понятно
+            </Button>
+          </div>
+        </>
       )}
     </div>
   );
