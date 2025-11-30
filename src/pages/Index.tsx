@@ -174,14 +174,6 @@ export default function Index() {
             <p className="text-xs text-gray-500 text-center mb-3">Способы оплаты</p>
             <div className="flex items-center justify-center gap-3 flex-wrap">
               <div className="bg-white border border-gray-200 rounded-lg px-3 py-2 flex items-center gap-2">
-                <Icon name="CreditCard" size={20} className="text-gray-700" />
-                <span className="text-xs font-medium text-gray-700">Visa</span>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-lg px-3 py-2 flex items-center gap-2">
-                <Icon name="CreditCard" size={20} className="text-gray-700" />
-                <span className="text-xs font-medium text-gray-700">Mastercard</span>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-lg px-3 py-2 flex items-center gap-2">
                 <Icon name="Landmark" size={20} className="text-gray-700" />
                 <span className="text-xs font-medium text-gray-700">МИР</span>
               </div>
