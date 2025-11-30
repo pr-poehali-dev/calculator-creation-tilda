@@ -127,27 +127,27 @@ export default function Index() {
             </Button>
           </div>
 
-          <div className="text-center pt-1 sm:pt-2">
-            <button className="text-primary hover:underline text-sm sm:text-base transition-all duration-200">
+          <div className="text-center pt-1 sm:pt-2 space-y-3">
+            <button className="text-primary hover:underline text-sm sm:text-base transition-all duration-200 block w-full">
               Что если я не успею вернуть заём вовремя?
             </button>
+            
+            <div className="bg-blue-50 border border-primary/20 rounded-xl p-4">
+              <p className="text-xs text-gray-600 mb-2 font-semibold">Код для Tilda:</p>
+              <div className="bg-white rounded-lg p-3 border border-gray-200">
+                <code className="text-xs text-gray-800 break-all">
+                  &lt;iframe src="{window.location.href}" width="100%" height="800px" frameborder="0"&gt;&lt;/iframe&gt;
+                </code>
+              </div>
+              <p className="text-xs text-gray-500 mt-2">
+                Вставьте этот код в блок T123 (HTML) на Tilda
+              </p>
+            </div>
           </div>
         </div>
       </Card>
 
-      <div className="fixed bottom-8 right-8 bg-white p-6 rounded-2xl shadow-xl max-w-md hidden lg:block border-2 border-gray-100">
-        <h3 className="font-bold text-lg mb-3 text-gray-900">Код для Tilda</h3>
-        <div className="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs font-mono overflow-x-auto">
-          <code>
-            &lt;iframe src="{window.location.href}" 
-            <br />width="100%" height="800px" 
-            <br />frameborder="0"&gt;&lt;/iframe&gt;
-          </code>
-        </div>
-        <p className="text-sm text-gray-600 mt-3">
-          Вставьте этот код в блок T123 (HTML) на Tilda
-        </p>
-      </div>
+
     </div>
   );
 }
