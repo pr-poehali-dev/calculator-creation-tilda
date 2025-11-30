@@ -34,27 +34,27 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-blue-50 flex items-center justify-center p-4">
-      <Card className="w-full max-w-2xl bg-white shadow-2xl rounded-3xl overflow-hidden">
-        <div className="bg-gradient-to-r from-[#FFD93D] via-[#FFC933] to-[#FFD93D] p-6 relative overflow-hidden">
-          <div className="absolute right-4 top-1/2 -translate-y-1/2 text-6xl opacity-20">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-blue-50 flex items-center justify-center p-2 sm:p-4">
+      <Card className="w-full max-w-2xl bg-white shadow-2xl rounded-2xl sm:rounded-3xl overflow-hidden">
+        <div className="bg-gradient-to-r from-[#FFD93D] via-[#FFC933] to-[#FFD93D] p-4 sm:p-6 relative overflow-hidden">
+          <div className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl opacity-20">
             ✓💰🎁
           </div>
           <div className="relative z-10">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
               Первый заём бесплатно!
             </h1>
-            <p className="text-gray-700 text-lg">
+            <p className="text-gray-700 text-base sm:text-lg">
               При условии возврата в срок
             </p>
           </div>
         </div>
 
-        <div className="p-8 space-y-8">
-          <div className="space-y-4">
+        <div className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8">
+          <div className="space-y-3 sm:space-y-4">
             <div className="flex justify-between items-baseline">
-              <label className="text-xl text-gray-700">Сумма</label>
-              <span className="text-3xl font-bold text-gray-900">
+              <label className="text-lg sm:text-xl text-gray-700">Сумма</label>
+              <span className="text-2xl sm:text-3xl font-bold text-gray-900">
                 {formatAmount(amount)} ₽
               </span>
             </div>
@@ -74,10 +74,10 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <div className="flex justify-between items-baseline">
-              <label className="text-xl text-gray-700">Срок</label>
-              <span className="text-3xl font-bold text-gray-900">
+              <label className="text-lg sm:text-xl text-gray-700">Срок</label>
+              <span className="text-2xl sm:text-3xl font-bold text-gray-900">
                 {days} дней
               </span>
             </div>
@@ -97,45 +97,45 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-6 pt-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 pt-2 sm:pt-4">
             <div>
-              <p className="text-gray-600 mb-2">Возвращаете</p>
+              <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">Возвращаете</p>
               <div className="space-y-1">
-                <p className="text-gray-400 line-through text-lg">
+                <p className="text-gray-400 line-through text-sm sm:text-lg">
                   {formatAmount(normalTotal)} ₽
                 </p>
-                <div className="inline-block bg-[#C4F54E] px-4 py-2 rounded-xl">
-                  <p className="text-2xl font-bold text-gray-900">
+                <div className="inline-block bg-[#C4F54E] px-2 sm:px-4 py-1 sm:py-2 rounded-lg sm:rounded-xl">
+                  <p className="text-lg sm:text-2xl font-bold text-gray-900">
                     {formatAmount(discountedTotal)} ₽
                   </p>
                 </div>
               </div>
             </div>
             <div>
-              <p className="text-gray-600 mb-2">Дата возврата</p>
-              <p className="text-2xl font-semibold text-gray-900 mt-3">
+              <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">Дата возврата</p>
+              <p className="text-lg sm:text-2xl font-semibold text-gray-900 mt-1 sm:mt-3">
                 {returnDate}
               </p>
             </div>
           </div>
 
-          <div className="space-y-4 pt-4">
+          <div className="space-y-3 sm:space-y-4 pt-2 sm:pt-4">
             <Button 
-              className="w-full h-16 text-xl font-semibold bg-primary hover:bg-primary/90 text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200"
+              className="w-full h-14 sm:h-16 text-lg sm:text-xl font-semibold bg-primary hover:bg-primary/90 text-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200"
             >
               Получить через госуслуги
             </Button>
             
             <Button 
               variant="outline"
-              className="w-full h-16 text-xl font-semibold border-[#FFD93D] border-4 bg-white hover:bg-[#FFD93D]/10 text-gray-900 rounded-2xl transition-all duration-200"
+              className="w-full h-14 sm:h-16 text-lg sm:text-xl font-semibold border-[#FFD93D] border-3 sm:border-4 bg-white hover:bg-[#FFD93D]/10 text-gray-900 rounded-xl sm:rounded-2xl transition-all duration-200"
             >
               Получить бесплатно
             </Button>
           </div>
 
-          <div className="text-center pt-2">
-            <button className="text-primary hover:underline text-base transition-all duration-200">
+          <div className="text-center pt-1 sm:pt-2">
+            <button className="text-primary hover:underline text-sm sm:text-base transition-all duration-200">
               Что если я не успею вернуть заём вовремя?
             </button>
           </div>
