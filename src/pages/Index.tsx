@@ -121,9 +121,12 @@ export default function Index() {
 
           <div className="pt-2 sm:pt-4">
             <Button 
+              asChild
               className="w-full h-14 sm:h-16 text-lg sm:text-xl font-semibold bg-primary hover:bg-primary/90 text-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200"
             >
-              Получить займ
+              <a href="https://www.money-financei.ru/theapplicationisoffline" target="_blank" rel="noopener noreferrer">
+                Получить займ
+              </a>
             </Button>
           </div>
 
