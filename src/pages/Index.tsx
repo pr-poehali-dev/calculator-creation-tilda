@@ -36,15 +36,15 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-blue-50 flex items-center justify-center p-2 sm:p-4">
       <Card className="w-full max-w-2xl bg-white shadow-2xl rounded-2xl sm:rounded-3xl overflow-hidden">
-        <div className="bg-gradient-to-r from-[#FFD93D] via-[#FFC933] to-[#FFD93D] p-4 sm:p-6 relative overflow-hidden">
+        <div className="bg-gradient-to-r from-primary via-blue-600 to-primary p-4 sm:p-6 relative overflow-hidden">
           <div className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl opacity-20">
             ✓💰🎁
           </div>
           <div className="relative z-10">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2">
               Первый заём бесплатно!
             </h1>
-            <p className="text-gray-700 text-base sm:text-lg">
+            <p className="text-white/90 text-base sm:text-lg">
               При условии возврата в срок
             </p>
           </div>
@@ -121,10 +121,9 @@ export default function Index() {
 
           <div className="pt-2 sm:pt-4">
             <Button 
-              variant="outline"
-              className="w-full h-14 sm:h-16 text-lg sm:text-xl font-semibold border-[#FFD93D] border-3 sm:border-4 bg-white hover:bg-[#FFD93D]/10 text-gray-900 rounded-xl sm:rounded-2xl transition-all duration-200"
+              className="w-full h-14 sm:h-16 text-lg sm:text-xl font-semibold bg-primary hover:bg-primary/90 text-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200"
             >
-              Получить бесплатно
+              Получить займ
             </Button>
           </div>
 
