@@ -58,7 +58,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-blue-50 flex items-center justify-center p-0">
-      <Card className="w-full max-w-2xl bg-white shadow-2xl rounded-2xl overflow-hidden h-screen">
+      <Card className="w-full bg-white shadow-2xl rounded-none overflow-hidden h-screen flex flex-col">
         <div className="bg-gradient-to-r from-primary via-blue-600 to-primary p-5 relative overflow-hidden">
           <div className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl opacity-20">
             ✓💰🎁
@@ -81,7 +81,7 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="p-5 pb-3 space-y-5">
+        <div className="p-5 pb-3 space-y-5 flex-1 overflow-y-auto">
           <div className="space-y-3 sm:space-y-4">
             <div className="flex justify-between items-baseline">
               <label className="text-lg sm:text-xl text-gray-700">Сумма</label>
