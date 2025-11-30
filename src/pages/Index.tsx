@@ -161,7 +161,7 @@ export default function Index() {
             </Button>
           </div>
 
-          <div className="text-center pt-2 sm:pt-2 pb-1">
+          <div className="text-center pt-2 sm:pt-2">
             <button 
               onClick={() => setShowInfoModal(true)}
               className="text-primary hover:underline text-sm sm:text-base transition-all duration-200"
